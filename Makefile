@@ -1,5 +1,5 @@
 .PHONY: all
-all: format test build
+all: format build run
 
 .PHONY: format
 format:
@@ -22,3 +22,15 @@ debug:
 .PHONY: clean
 clean:
 	rm -rf build
+
+.PHONY: run
+run:
+	./build/monitor
+
+.PHONY: sudorun
+sudorun:
+	sudo ./build/monitor
+
+.PHONY: gdb
+gdb:
+	sudo gdb ./build/monitor
